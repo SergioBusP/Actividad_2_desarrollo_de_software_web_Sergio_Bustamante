@@ -27,7 +27,7 @@ public class LoginService implements LoginUsuarioUseCase {
     }
 
     @Override
-    public Usuario login( String email,
+    public String login( String email,
             String password) {
 
         Usuario usuario = usuarioRepository.buscarPorEmail(email)
@@ -47,6 +47,6 @@ public class LoginService implements LoginUsuarioUseCase {
 
         sessionRepository.crearSesion(usuario.getId().value(), token);
 
-        return usuario;
+        return token;
     }
 }
