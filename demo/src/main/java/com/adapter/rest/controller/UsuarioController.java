@@ -5,11 +5,10 @@ import com.adapter.rest.dto.UsuarioRegistroRequest;
 import com.adapter.rest.dto.LoginRequest;
 import com.adapter.rest.mapper.UsuarioRestMapper;
 import com.core.port.in.ActualizarUsuarioUseCase;
-import com.core.port.in.EliminarUsuarioUseCase;
-import com.core.port.in.ListarUsuariosUseCase;
-import com.core.port.in.LoginUsuarioUseCase;
-import com.core.port.in.ObtenerUsuarioUseCase;
-import com.core.port.in.RegistrarUsuarioUseCase;
+import com.core.port.in.*;
+import com.core.service.Mappers.ListarUsuariosService;
+import com.core.service.Mappers.ObtenerUsuarioService;
+import com.core.service.Mappers.RegistrarUsuarioService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,18 +17,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
-    private final RegistrarUsuarioUseCase registrarUsuario;
-    private final ObtenerUsuarioUseCase obtenerUsuario;
+    private final RegistrarUsuarioService registrarUsuario;
+    private final ObtenerUsuarioService obtenerUsuario;
     private final LoginUsuarioUseCase loginUsuario;
-    private final ListarUsuariosUseCase listarUsuarios;
+    private final ListarUsuariosService listarUsuarios;
     private final ActualizarUsuarioUseCase actualizarUsuario;
     private final EliminarUsuarioUseCase eliminarUsuario;
 
     public UsuarioController(
-            RegistrarUsuarioUseCase registrarUsuario,
-            ObtenerUsuarioUseCase obtenerUsuario,
+            RegistrarUsuarioService registrarUsuario,
+            ObtenerUsuarioService obtenerUsuario,
             LoginUsuarioUseCase loginUsuario,
-            ListarUsuariosUseCase listarUsuarios,
+            ListarUsuariosService listarUsuarios,
             ActualizarUsuarioUseCase actualizarUsuario,
             EliminarUsuarioUseCase eliminarUsuario) {
         this.registrarUsuario = registrarUsuario;
@@ -42,7 +41,7 @@ public class UsuarioController {
 
     @PostMapping("/registrar")
     public ResponseEntity<UsuarioDto> registrar(@RequestBody UsuarioRegistroRequest request) {
-        var usuario = registrarUsuario.registrar(request.getNombre(), request.getEmail(), request.getPassword());
+        var usuario = registrarUsuario.crearNuevo(request.getNombre(), request.getEmail(), request.getPassword());
         return ResponseEntity.ok(UsuarioRestMapper.toDto(usuario));
     }
 

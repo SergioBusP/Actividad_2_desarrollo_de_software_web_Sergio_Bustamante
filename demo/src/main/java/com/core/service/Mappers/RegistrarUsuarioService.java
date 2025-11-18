@@ -1,0 +1,50 @@
+package com.core.service.Mappers;
+
+import com.core.port.in.RegistrarUsuarioUseCase;
+import com.core.port.out.UsuarioRepository;
+import com.core.domain.entity.Usuario;
+import com.core.domain.entity.Usuario.UsuarioRegistradoResult;
+import com.core.domain.service.PasswordHasher;
+import com.core.domain.service.PasswordStrengthEvaluator;
+import com.core.domain.valueObject.UserId;
+import com.core.domain.valueObject.UserName;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RegistrarUsuarioService implements RegistrarUsuarioUseCase {
+
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordHasher hasher;
+    private final PasswordStrengthEvaluator evaluator;
+
+    public RegistrarUsuarioService(
+            UsuarioRepository usuarioRepository,
+            PasswordHasher hasher,
+            PasswordStrengthEvaluator evaluator
+    ) {
+        this.usuarioRepository = usuarioRepository;
+        this.hasher = hasher;
+        this.evaluator = evaluator;
+    }
+
+    @Override
+    public Usuario crearNuevo(String Nombre,
+            String email,
+            String plainPassword) {
+
+        UserName nombre = new UserName(Nombre);
+
+        UsuarioRegistradoResult resultado = Usuario.registrar(
+                new UserId((long) Math.random()),
+                nombre,
+                email,
+                plainPassword,
+                hasher,
+                evaluator
+        );
+
+        Usuario usuario = usuarioRepository.guardar(resultado.usuario());
+
+        return usuario;
+    }
+}
