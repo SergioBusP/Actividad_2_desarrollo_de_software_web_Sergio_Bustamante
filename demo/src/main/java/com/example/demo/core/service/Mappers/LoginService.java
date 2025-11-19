@@ -44,7 +44,7 @@ public class LoginService implements LoginUsuarioUseCase {
             throw new RuntimeException("Credenciales inválidas.");
         }
 
-        String token = tokenService.generarToken(usuario.getId().value());
+        String token = tokenService.generarToken(usuario.getNombre().value());
 
         sessionRepository.crearSesion(usuario.getId().value(), token);
 

@@ -11,11 +11,17 @@ import com.example.demo.core.domain.service.PasswordHasher;
 import com.example.demo.core.domain.service.PasswordStrengthEvaluator;
 import com.example.demo.core.domain.valueObject.*;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+
 public class Usuario {
 
     private UserId id;
     private UserName nombre;
     private String email;
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "password_hash"))
     private PasswordHash passwordHash;
     private Instant fechaCreacion;
     private Instant fechaActualizacion;
@@ -81,7 +87,7 @@ public class Usuario {
     }
 
     public void validarPassword(String passwordPlano) {
-        if (!passwordHash.verify(passwordPlano)) {
+        if (!passwordHash.getValue().equals(passwordPlano)) {
             throw new PasswordInvalidaException();
         }
     }
@@ -116,7 +122,7 @@ public class Usuario {
     ) {
         evaluator.validate(plainPassword);
 
-        PasswordHash hash = PasswordHash.from(hasher.hash(plainPassword));
+        PasswordHash hash = new PasswordHash(plainPassword);
         Instant now = Instant.now();
 
         Usuario usuario = new Usuario(

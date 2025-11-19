@@ -1,14 +1,19 @@
 package com.example.demo.core.domain.valueObject;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
+import jakarta.persistence.Embeddable;
 
-public record PasswordHash(String value) {
+@Embeddable
+public class PasswordHash {
 
-    public static PasswordHash from(String hash) {
-        return new PasswordHash(hash);
+    private String value;
+
+    public PasswordHash() {}
+
+    public PasswordHash(String value) {
+        this.value = value;
     }
 
-    public boolean verify(String plain) {
-        return BCrypt.checkpw(plain, value);
+    public String getValue() {
+        return value;
     }
 }

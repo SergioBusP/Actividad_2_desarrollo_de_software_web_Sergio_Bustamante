@@ -2,9 +2,7 @@ package com.example.demo.core.port.out;
 
 public interface TokenServicePort {
 
-    String generarToken(Long userId);
+    String generarToken(String username);
 
-    boolean validarToken(String token);
-
-    Long obtenerUserIdDesdeToken(String token);
+    String validarToken(String token);
 }
