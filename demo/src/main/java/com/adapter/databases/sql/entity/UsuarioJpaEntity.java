@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.Instant;
 
-import com.core.domain.valueObject.PasswordHash;
+import com.example.demo.core.domain.valueObject.PasswordHash;
 
 @Entity
 @Table(name = "usuarios")

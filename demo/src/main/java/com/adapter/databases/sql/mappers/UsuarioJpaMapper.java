@@ -1,8 +1,8 @@
 package com.adapter.databases.sql.mappers;
 
 import com.adapter.databases.sql.entity.UsuarioJpaEntity;
-import com.core.domain.entity.Usuario;
-import com.core.domain.valueObject.*;
+import com.example.demo.core.domain.entity.Usuario;
+import com.example.demo.core.domain.valueObject.*;
 
 public class UsuarioJpaMapper {
 

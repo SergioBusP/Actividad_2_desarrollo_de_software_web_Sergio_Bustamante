@@ -4,11 +4,10 @@ import com.adapter.rest.dto.UsuarioDto;
 import com.adapter.rest.dto.UsuarioRegistroRequest;
 import com.adapter.rest.dto.LoginRequest;
 import com.adapter.rest.mapper.UsuarioRestMapper;
-import com.core.port.in.ActualizarUsuarioUseCase;
-import com.core.port.in.*;
-import com.core.service.Mappers.ListarUsuariosService;
-import com.core.service.Mappers.ObtenerUsuarioService;
-import com.core.service.Mappers.RegistrarUsuarioService;
+import com.example.demo.core.port.in.*;
+import com.example.demo.core.service.Mappers.ListarUsuariosService;
+import com.example.demo.core.service.Mappers.ObtenerUsuarioService;
+import com.example.demo.core.service.Mappers.RegistrarUsuarioService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

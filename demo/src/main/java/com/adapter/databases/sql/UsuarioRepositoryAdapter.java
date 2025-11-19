@@ -3,8 +3,8 @@ package com.adapter.databases.sql;
 import com.adapter.databases.sql.entity.UsuarioJpaEntity;
 import com.adapter.databases.sql.mappers.UsuarioJpaMapper;
 import com.adapter.databases.sql.repository.UsuarioJpaRepository;
-import com.core.domain.entity.Usuario;
-import com.core.port.out.UsuarioRepository;
+import com.example.demo.core.domain.entity.Usuario;
+import com.example.demo.core.port.out.UsuarioRepository;
 
 import org.springframework.stereotype.Component;
 

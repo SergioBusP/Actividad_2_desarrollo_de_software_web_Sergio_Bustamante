@@ -1,7 +1,7 @@
 package com.adapter.rest.mapper;
 
 import com.adapter.rest.dto.UsuarioDto;
-import com.core.domain.entity.Usuario;
+import com.example.demo.core.domain.entity.Usuario;
 
 public class UsuarioRestMapper {
 

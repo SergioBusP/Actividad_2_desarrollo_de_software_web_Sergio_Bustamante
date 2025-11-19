@@ -2,10 +2,11 @@ package com.adapter.rest.controller;
 
 import com.adapter.rest.dto.VehiculoRequest;
 import com.adapter.rest.dto.VehiculoResponse;
-import com.core.port.in.*;
-import com.core.domain.entity.Vehiculo;
+
 import org.springframework.web.bind.annotation.*;
 import com.adapter.rest.mapper.VehiculoRestMapper;
+import com.example.demo.core.domain.entity.Vehiculo;
+import com.example.demo.core.port.in.*;
 
 import java.util.List;
 import java.util.UUID;

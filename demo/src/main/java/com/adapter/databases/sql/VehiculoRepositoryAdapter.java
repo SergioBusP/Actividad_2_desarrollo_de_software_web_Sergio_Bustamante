@@ -1,11 +1,11 @@
 package com.adapter.databases.sql;
 
-import com.core.port.out.VehiculoRepositoryPort;
-import com.core.domain.entity.Vehiculo;
 import org.springframework.stereotype.Component;
 import com.adapter.databases.sql.entity.*;
 import com.adapter.databases.sql.mappers.*;
 import com.adapter.databases.sql.repository.*;
+import com.example.demo.core.domain.entity.Vehiculo;
+import com.example.demo.core.port.out.VehiculoRepositoryPort;
 
 import java.util.List;
 import java.util.Optional;
