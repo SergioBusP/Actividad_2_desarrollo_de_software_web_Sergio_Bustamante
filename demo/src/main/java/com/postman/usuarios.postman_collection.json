@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "Usuarios API",
+    "_postman_id": "b7a89e3d-usuarios-collection",
+    "description": "Colección para gestión de usuarios en arquitectura hexagonal",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Usuario",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/usuarios",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Juan Perez\",\n  \"email\": \"juan@test.com\",\n  \"password\": \"Password123!\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Listar Usuarios",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/usuarios"
+      }
+    },
+    {
+      "name": "Obtener Usuario por ID",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/usuarios/1"
+      }
+    },
+    {
+      "name": "Actualizar Usuario",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/usuarios/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Juan Actualizado\",\n  \"email\": \"juan@nuevo.com\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Eliminar Usuario",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/usuarios/1"
+      }
+    }
+  ]
+}

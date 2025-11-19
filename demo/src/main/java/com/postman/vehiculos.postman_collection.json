@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "Vehículos API",
+    "_postman_id": "vehiculos-collection-12345",
+    "description": "Colección para gestión de vehículos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Vehículo",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/vehiculos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"placa\": \"ABC123\",\n  \"marca\": \"Toyota\",\n  \"modelo\": \"Corolla\",\n  \"version\": \"XEi\",\n  \"color\": \"Rojo\",\n  \"numPuestos\": 5,\n  \"numPuertas\": 4,\n  \"combustible\": \"Gasolina\",\n  \"kilometros\": 15000,\n  \"cilindraje\": 1800,\n  \"categoria\": \"Sedan\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Listar Vehículos",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/vehiculos"
+      }
+    },
+    {
+      "name": "Obtener Vehículo",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/vehiculos/1"
+      }
+    },
+    {
+      "name": "Actualizar Vehículo",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/vehiculos/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"color\": \"Negro\",\n  \"kilometros\": 16000\n}"
+        }
+      }
+    },
+    {
+      "name": "Eliminar Vehículo",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/vehiculos/1"
+      }
+    }
+  ]
+}

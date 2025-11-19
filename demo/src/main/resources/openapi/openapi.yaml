@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: Sistema de Gestión de Usuarios y Vehículos
+  version: 1.0.0
+  description: API REST hexagonal con login, usuarios y vehículos.
+
+servers:
+  - url: http://localhost:8080
+
+paths:
+
+  /auth/login:
+    post:
+      summary: Login de usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              email: "juan@test.com"
+              password: "Password123!"
+      responses:
+        '200':
+          description: Token generado correctamente
+
+  /auth/logout:
+    post:
+      summary: Logout del usuario
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Sesión cerrada
+
+  /usuarios:
+    get:
+      summary: Obtener todos los usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+    post:
+      summary: Crear nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              nombre: Juan Perez
+              email: juan@test.com
+              password: Password123!
+      responses:
+        '201':
+          description: Usuario creado
+
+  /usuarios/{id}:
+    get:
+      summary: Obtener usuario por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+      responses:
+        '200':
+          description: Usuario encontrado
+    put:
+      summary: Actualizar usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+      responses:
+        '200':
+          description: Usuario actualizado
+    delete:
+      summary: Eliminar usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+      responses:
+        '204':
+          description: Usuario eliminado
+
+  /vehiculos:
+    get:
+      summary: Listar vehículos
+      responses:
+        '200':
+          description: Lista de vehículos
+    post:
+      summary: Crear vehículo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              placa: ABC123
+              marca: Toyota
+              modelo: Corolla
+      responses:
+        '201':
+          description: Vehículo creado
+
+  /vehiculos/{id}:
+    get:
+      summary: Obtener vehículo por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+    put:
+      summary: Actualizar vehículo
+      parameters:
+        - name: id
+          in: path
+          required: true
+    delete:
+      summary: Eliminar vehículo
+      parameters:
+        - name: id
+          in: path
+          required: true
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
