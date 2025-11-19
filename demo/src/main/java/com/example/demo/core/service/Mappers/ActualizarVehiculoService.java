@@ -1,12 +1,12 @@
-package com.core.service.Mappers;
-
-import com.core.port.in.ActualizarVehiculoUseCase;
-import com.core.port.out.VehiculoRepositoryPort;
-import com.core.domain.entity.Vehiculo;
+package com.example.demo.core.service.Mappers;
 
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+
+import com.example.demo.core.domain.entity.Vehiculo;
+import com.example.demo.core.port.in.ActualizarVehiculoUseCase;
+import com.example.demo.core.port.out.VehiculoRepositoryPort;
 
 @Service
 public class ActualizarVehiculoService implements ActualizarVehiculoUseCase {

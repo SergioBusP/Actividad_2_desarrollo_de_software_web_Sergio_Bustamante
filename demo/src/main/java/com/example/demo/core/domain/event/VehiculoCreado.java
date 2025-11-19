@@ -1,10 +1,10 @@
-package com.core.domain.event;
+package com.example.demo.core.domain.event;
 
 import java.time.Instant;
-import com.core.domain.entity.*;
-import com.core.domain.valueObject.Placa;
-
 import java.util.UUID;
+
+import com.example.demo.core.domain.entity.*;
+import com.example.demo.core.domain.valueObject.Placa;
 
 public class VehiculoCreado implements EventoDominio {
 	private final UUID idVehiculo;

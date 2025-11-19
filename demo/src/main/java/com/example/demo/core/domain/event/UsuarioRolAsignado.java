@@ -1,7 +1,8 @@
-package com.core.domain.event;
+package com.example.demo.core.domain.event;
 
-import com.core.domain.valueObject.UserId;
 import java.time.Instant;
+
+import com.example.demo.core.domain.valueObject.UserId;
 
 public record UsuarioRolAsignado(UserId id, String rol, Instant fecha) {}
 

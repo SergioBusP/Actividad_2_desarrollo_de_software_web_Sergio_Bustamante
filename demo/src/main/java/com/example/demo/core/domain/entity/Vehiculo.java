@@ -1,10 +1,11 @@
-package com.core.domain.entity;
+package com.example.demo.core.domain.entity;
 
 import java.util.Objects;
 import java.util.UUID;
-import com.core.domain.valueObject.*;
-import com.core.domain.event.*;
-import com.core.domain.exception.*;
+
+import com.example.demo.core.domain.event.*;
+import com.example.demo.core.domain.exception.*;
+import com.example.demo.core.domain.valueObject.*;
 
 public class Vehiculo {
 

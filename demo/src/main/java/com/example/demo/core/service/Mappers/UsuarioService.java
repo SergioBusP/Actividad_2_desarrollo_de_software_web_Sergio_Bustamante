@@ -1,11 +1,11 @@
-package com.core.service.Mappers;
-
-import com.core.port.in.*;
-import com.core.domain.entity.Usuario;
+package com.example.demo.core.service.Mappers;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.example.demo.core.domain.entity.Usuario;
+import com.example.demo.core.port.in.*;
 
 @Service
 public class UsuarioService {

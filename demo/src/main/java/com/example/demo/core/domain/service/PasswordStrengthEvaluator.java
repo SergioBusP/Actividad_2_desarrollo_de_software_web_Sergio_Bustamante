@@ -1,9 +1,9 @@
-package com.core.domain.service;
-
-import com.core.domain.exception.PasswordDebilException;
+package com.example.demo.core.domain.service;
 
 import java.util.Set;
 import java.util.regex.Pattern;
+
+import com.example.demo.core.domain.exception.PasswordDebilException;
 
 public class PasswordStrengthEvaluator {
 

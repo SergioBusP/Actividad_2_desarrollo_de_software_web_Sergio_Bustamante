@@ -1,14 +1,14 @@
 package com.adapter.rest.mapper;
 
 import com.adapter.rest.dto.VehiculoRequest;
-import com.core.domain.entity.Categoria;
-import com.core.domain.entity.Vehiculo;
-import com.core.domain.valueObject.Capacidad;
-import com.core.domain.valueObject.Color;
-import com.core.domain.valueObject.Kilometraje;
-import com.core.domain.valueObject.MarcaModelo;
-import com.core.domain.valueObject.Motor;
-import com.core.domain.valueObject.Placa;
+import com.example.demo.core.domain.entity.Categoria;
+import com.example.demo.core.domain.entity.Vehiculo;
+import com.example.demo.core.domain.valueObject.Capacidad;
+import com.example.demo.core.domain.valueObject.Color;
+import com.example.demo.core.domain.valueObject.Kilometraje;
+import com.example.demo.core.domain.valueObject.MarcaModelo;
+import com.example.demo.core.domain.valueObject.Motor;
+import com.example.demo.core.domain.valueObject.Placa;
 
 public class VehiculoRestMapper {
     public static VehiculoRequest toRequest(Vehiculo v) {

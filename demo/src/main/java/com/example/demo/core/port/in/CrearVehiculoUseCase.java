@@ -1,6 +1,6 @@
-package com.core.port.in;
+package com.example.demo.core.port.in;
 
-import com.core.domain.entity.Vehiculo;
+import com.example.demo.core.domain.entity.Vehiculo;
 
 public interface CrearVehiculoUseCase {
     Vehiculo ejecutar(Vehiculo vehiculo);

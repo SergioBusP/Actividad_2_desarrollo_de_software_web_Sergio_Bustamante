@@ -1,4 +1,4 @@
-package com.core.domain.service;
+package com.example.demo.core.domain.service;
 
 public interface PasswordHasher {
     

@@ -1,4 +1,4 @@
-package com.core.domain.valueObject;
+package com.example.demo.core.domain.valueObject;
 
 import java.util.Objects;
 import java.util.regex.Pattern;

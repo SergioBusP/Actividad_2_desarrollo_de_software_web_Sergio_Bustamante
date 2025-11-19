@@ -1,9 +1,9 @@
-package com.core.port.out;
-
-import com.core.domain.entity.Usuario;
+package com.example.demo.core.port.out;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.example.demo.core.domain.entity.Usuario;
 
 public interface UsuarioRepository {
 

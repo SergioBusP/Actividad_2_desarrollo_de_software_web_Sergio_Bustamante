@@ -1,9 +1,9 @@
 package com.adapter.databases.sql.mappers;
 
-import com.core.domain.entity.Categoria;
-import com.core.domain.entity.Vehiculo;
-import com.core.domain.valueObject.*;
 import com.adapter.databases.sql.entity.VehiculoJpaEntity;
+import com.example.demo.core.domain.entity.Categoria;
+import com.example.demo.core.domain.entity.Vehiculo;
+import com.example.demo.core.domain.valueObject.*;
 
 public class VehiculoJpaMapper {
 

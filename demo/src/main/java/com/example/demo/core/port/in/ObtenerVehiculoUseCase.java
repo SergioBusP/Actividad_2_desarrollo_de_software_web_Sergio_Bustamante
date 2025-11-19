@@ -1,8 +1,8 @@
-package com.core.port.in;
+package com.example.demo.core.port.in;
 
 import java.util.UUID;
 
-import com.core.domain.entity.Vehiculo;
+import com.example.demo.core.domain.entity.Vehiculo;
 
 public interface ObtenerVehiculoUseCase {
     Vehiculo ejecutar(UUID id);

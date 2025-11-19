@@ -1,14 +1,15 @@
-package com.core.service.Mappers;
+package com.example.demo.core.service.Mappers;
 
-import com.core.port.in.RegistrarUsuarioUseCase;
-import com.core.port.out.UsuarioRepository;
-import com.core.domain.entity.Usuario;
-import com.core.domain.entity.Usuario.UsuarioRegistradoResult;
-import com.core.domain.service.PasswordHasher;
-import com.core.domain.service.PasswordStrengthEvaluator;
-import com.core.domain.valueObject.UserId;
-import com.core.domain.valueObject.UserName;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.core.domain.entity.Usuario;
+import com.example.demo.core.domain.entity.Usuario.UsuarioRegistradoResult;
+import com.example.demo.core.domain.service.PasswordHasher;
+import com.example.demo.core.domain.service.PasswordStrengthEvaluator;
+import com.example.demo.core.domain.valueObject.UserId;
+import com.example.demo.core.domain.valueObject.UserName;
+import com.example.demo.core.port.in.RegistrarUsuarioUseCase;
+import com.example.demo.core.port.out.UsuarioRepository;
 
 @Service
 public class RegistrarUsuarioService implements RegistrarUsuarioUseCase {

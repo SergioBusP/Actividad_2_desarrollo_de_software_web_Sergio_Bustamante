@@ -1,7 +1,8 @@
-package com.core.port.in;
+package com.example.demo.core.port.in;
 
-import com.core.domain.entity.Vehiculo;
 import java.util.List;
+
+import com.example.demo.core.domain.entity.Vehiculo;
 
 public interface ListarVehiculosUseCase {
     List<Vehiculo> ejecutar();

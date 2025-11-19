@@ -1,4 +1,4 @@
-package com.core.domain.exception;
+package com.example.demo.core.domain.exception;
 
 public class PasswordInvalidaException extends RuntimeException {
     public PasswordInvalidaException(String mensaje) {

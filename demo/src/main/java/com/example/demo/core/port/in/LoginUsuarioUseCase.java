@@ -1,4 +1,4 @@
-package com.core.port.in;
+package com.example.demo.core.port.in;
 
 public interface LoginUsuarioUseCase {
 

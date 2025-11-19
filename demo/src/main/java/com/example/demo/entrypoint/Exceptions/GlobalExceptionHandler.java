@@ -1,4 +1,4 @@
-package com.entrypoint.Exceptions;
+package com.example.demo.entrypoint.Exceptions;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -84,11 +84,11 @@ public class GlobalExceptionHandler {
      * Puedes agregar todas las tuyas aquí.
      */
     @ExceptionHandler({
-            com.core.domain.exception.UsuarioNoEncontradoException.class,
-            com.core.domain.exception.PasswordInvalidaException.class,
-            com.core.domain.exception.UsuarioYaActivoException.class,
-            com.core.domain.exception.UsuarioYaInactivoException.class,
-            com.core.domain.exception.UsernameInvalidoException.class
+            com.example.demo.core.domain.exception.UsuarioNoEncontradoException.class,
+            com.example.demo.core.domain.exception.PasswordInvalidaException.class,
+            com.example.demo.core.domain.exception.UsuarioYaActivoException.class,
+            com.example.demo.core.domain.exception.UsuarioYaInactivoException.class,
+            com.example.demo.core.domain.exception.UsernameInvalidoException.class
     })
     public ResponseEntity<Object> handleDomainExceptions(
             RuntimeException ex,

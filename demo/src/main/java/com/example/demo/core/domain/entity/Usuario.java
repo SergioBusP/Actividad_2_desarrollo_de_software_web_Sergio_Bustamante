@@ -1,14 +1,15 @@
-package com.core.domain.entity;
+package com.example.demo.core.domain.entity;
 
-import com.core.domain.event.*;
-import com.core.domain.exception.*;
-import com.core.domain.service.PasswordHasher;
-import com.core.domain.service.PasswordStrengthEvaluator;
-import com.core.domain.valueObject.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import com.example.demo.core.domain.event.*;
+import com.example.demo.core.domain.exception.*;
+import com.example.demo.core.domain.service.PasswordHasher;
+import com.example.demo.core.domain.service.PasswordStrengthEvaluator;
+import com.example.demo.core.domain.valueObject.*;
 
 public class Usuario {
 

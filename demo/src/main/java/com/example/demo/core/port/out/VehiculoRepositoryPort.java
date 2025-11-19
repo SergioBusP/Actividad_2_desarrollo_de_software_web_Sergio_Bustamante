@@ -1,11 +1,11 @@
-package com.core.port.out;
+package com.example.demo.core.port.out;
 
-
-import com.core.domain.entity.Vehiculo;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import com.example.demo.core.domain.entity.Vehiculo;
 
 
 public interface VehiculoRepositoryPort {

@@ -1,6 +1,6 @@
-package com.core.domain.exception;
+package com.example.demo.core.domain.exception;
 
-import com.core.domain.entity.*;
+import com.example.demo.core.domain.entity.*;
 
 public final class CategoriaInvalidaException extends ExcepcionDominio{
 	

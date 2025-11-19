@@ -1,4 +1,4 @@
-package com.entrypoint.Dto;
+package com.example.demo.entrypoint.Dto;
 
 public class RegistrarUsuarioRequest {
     private String nombre;

@@ -1,10 +1,11 @@
-package com.core.service.Mappers;
+package com.example.demo.core.service.Mappers;
 
-import com.core.port.in.ObtenerVehiculoUseCase;
-import com.core.port.out.VehiculoRepositoryPort;
-import com.core.domain.entity.Vehiculo;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.core.domain.entity.Vehiculo;
+import com.example.demo.core.port.in.ObtenerVehiculoUseCase;
+import com.example.demo.core.port.out.VehiculoRepositoryPort;
 
 @Service
 public class ObtenerVehiculoService implements ObtenerVehiculoUseCase {

@@ -1,4 +1,4 @@
-package com.core.domain.valueObject;
+package com.example.demo.core.domain.valueObject;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 

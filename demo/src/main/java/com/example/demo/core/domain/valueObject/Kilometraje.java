@@ -1,7 +1,8 @@
-package com.core.domain.valueObject;
+package com.example.demo.core.domain.valueObject;
 
 import java.util.Objects;
-import com.core.domain.exception.*;
+
+import com.example.demo.core.domain.exception.*;
 
 public final class Kilometraje {
 	private final int valor;

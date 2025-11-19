@@ -1,4 +1,4 @@
-package com.core.port.out;
+package com.example.demo.core.port.out;
 
 public interface SessionRepositoryPort {
 

@@ -1,4 +1,4 @@
-package com.core.domain.entity;
+package com.example.demo.core.domain.entity;
 
 import java.util.Objects;
 

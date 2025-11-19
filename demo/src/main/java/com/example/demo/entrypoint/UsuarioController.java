@@ -1,9 +1,10 @@
-package com.entrypoint;
+package com.example.demo.entrypoint;
 
-import com.core.service.Mappers.UsuarioService;
-import com.core.service.Mappers.LoginService;
-import com.core.service.Mappers.LogoutService;
-import com.entrypoint.Dto.*;
+import com.example.demo.core.service.Mappers.LoginService;
+import com.example.demo.core.service.Mappers.LogoutService;
+import com.example.demo.core.service.Mappers.UsuarioService;
+import com.example.demo.entrypoint.Dto.*;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
