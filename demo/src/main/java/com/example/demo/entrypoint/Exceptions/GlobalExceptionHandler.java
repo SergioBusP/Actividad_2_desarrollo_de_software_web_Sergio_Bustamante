@@ -63,7 +63,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({
             io.jsonwebtoken.ExpiredJwtException.class,
             io.jsonwebtoken.MalformedJwtException.class,
-            io.jsonwebtoken.SignatureException.class,
             io.jsonwebtoken.JwtException.class
     })
     public ResponseEntity<Object> handleJwtException(

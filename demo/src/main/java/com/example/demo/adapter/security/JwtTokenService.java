@@ -12,6 +12,7 @@ public class JwtTokenService implements TokenServicePort {
 
     private final String SECRET_KEY = "mi-clave-super-secreta";
 
+    @SuppressWarnings("deprecation")
     @Override
     public String generarToken(String username) {
         return Jwts.builder()
@@ -22,6 +23,7 @@ public class JwtTokenService implements TokenServicePort {
                 .compact();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public String validarToken(String token) {
         return Jwts.parser()

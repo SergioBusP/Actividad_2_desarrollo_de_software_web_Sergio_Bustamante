@@ -1,8 +1,16 @@
 package com.example.demo.core.domain.service;
 
-public interface PasswordHasher {
-    
-    String hash(String plainPassword);
+import org.springframework.stereotype.Component;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
-    boolean verify(String plainPassword, String hashedPassword);
+@Component
+public class PasswordHasher {
+
+    public String hash(String plainPassword) {
+        return BCrypt.hashpw(plainPassword, BCrypt.gensalt());
+    }
+
+    public boolean matches(String plainPassword, String hashedPassword) {
+        return BCrypt.checkpw(plainPassword, hashedPassword);
+    }
 }

@@ -3,8 +3,11 @@ package com.example.demo.core.domain.service;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.springframework.stereotype.Service;
+
 import com.example.demo.core.domain.exception.PasswordDebilException;
 
+@Service
 public class PasswordStrengthEvaluator {
 
     private static final Pattern UPPERCASE = Pattern.compile(".*[A-Z].*");

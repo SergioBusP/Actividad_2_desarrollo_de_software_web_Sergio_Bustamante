@@ -1,71 +1,72 @@
 package com.example.demo.adapter.security;
 
-
-import com.example.demo.core.port.out.TokenServicePort;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import com.example.demo.config.JwtUtil;
 
 import java.io.IOException;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final TokenServicePort tokenServicePort;
-    private final UserDetailsService userDetailsService;
+    @Autowired
+    private JwtUtil jwtUtil;   // Tu clase que genera/valida tokens
 
-    public JwtAuthenticationFilter(TokenServicePort tokenServicePort,
-                                   UserDetailsService userDetailsService) {
-        this.tokenServicePort = tokenServicePort;
-        this.userDetailsService = userDetailsService;
-    }
+    @Autowired
+    private UserDetailsService userDetailsService; // Tu servicio de usuarios
 
     @Override
-    protected void doFilterInternal(@SuppressWarnings("null") HttpServletRequest request,
-                                    @SuppressWarnings("null") HttpServletResponse response,
-                                    @SuppressWarnings("null") FilterChain filterChain)
+    protected void doFilterInternal(
+            @SuppressWarnings("null") HttpServletRequest request,
+            @SuppressWarnings("null") HttpServletResponse response,
+            @SuppressWarnings("null") FilterChain filterChain)
             throws ServletException, IOException {
 
-        String authHeader = request.getHeader("Authorization");
+        final String authHeader = request.getHeader("Authorization");
+        String username = null;
+        String jwtToken = null;
 
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            filterChain.doFilter(request, response);
-            return;
+        // 1. Validar si viene el token en la cabecera
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            jwtToken = authHeader.substring(7);
+            username = jwtUtil.extractUsername(jwtToken);
         }
 
-        String token = authHeader.substring(7);
-
-        // Validar token y obtener username
-        String username;
-        try {
-            username = tokenServicePort.validarToken(token);
-        } catch (Exception e) {
-            filterChain.doFilter(request, response);
-            return;
-        }
-
-        // Si ya está autenticado, continúa
+        // 2. Si el usuario NO está autenticado aún
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-            UsernamePasswordAuthenticationToken authToken =
-                    new UsernamePasswordAuthenticationToken(
-                            userDetails,
-                            null,
-                            userDetails.getAuthorities()
-                    );
+            // 3. Validar token
+            if (jwtUtil.isTokenValid(jwtToken, userDetails)) {
 
-            SecurityContextHolder.getContext().setAuthentication(authToken);
+                UsernamePasswordAuthenticationToken authToken =
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails,
+                                null,
+                                userDetails.getAuthorities()
+                        );
+
+                authToken.setDetails(
+                        new WebAuthenticationDetailsSource().buildDetails(request)
+                );
+
+                // 4. Establecer autenticación en el contexto
+                SecurityContextHolder.getContext().setAuthentication(authToken);
+            }
         }
 
+        // 5. Continuar con la cadena de filtros
         filterChain.doFilter(request, response);
     }
 }

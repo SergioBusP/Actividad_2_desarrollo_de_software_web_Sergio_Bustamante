@@ -21,7 +21,7 @@ public class Usuario {
     private UserName nombre;
     private String email;
     @Embedded
-    @AttributeOverride(name = "value", column = @Column(name = "password_hash"))
+    @AttributeOverride(name = "valor", column = @Column(name = "password_hash"))
     private PasswordHash passwordHash;
     private Instant fechaCreacion;
     private Instant fechaActualizacion;
