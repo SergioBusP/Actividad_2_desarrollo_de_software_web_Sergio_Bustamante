@@ -1,7 +1,7 @@
 import axios from "../api/axiosInstance";
 
 const login = async (email, password) => {
-  const res = await axios.post("/auth/login", { email, password });
+  const res = await axios.post("/api/usuarios/login", { email, password });
   return res.data; // expects { token: "..." } or similar
 };
 
